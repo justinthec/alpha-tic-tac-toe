@@ -4,22 +4,68 @@
     <script type="text/javascript" src="tictactoe.js"></script>
   </head>
   <body>
+    <h1>AlphaTicTacToe</h1>
+    <h3>Undisputed World Champion</h3>
     <table class="game-grid">
       <tr>
-        <td><div id="0" class="game-cell"></div></td>
-        <td><div id="1" class="game-cell"></div></td>
-        <td><div id="2" class="game-cell"></div></td>
+        <td>
+          <div id="0" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="1" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="2" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
       </tr>
       <tr>
-        <td><div id="3" class="game-cell"></div></td>
-        <td><div id="4" class="game-cell"></div></td>
-        <td><div id="5" class="game-cell"></div></td>
+        <td>
+          <div id="3" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="4" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="5" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
       </tr>
       <tr>
-        <td><div id="6" class="game-cell"></div></td>
-        <td><div id="7" class="game-cell"></div></td>
-        <td><div id="8" class="game-cell"></div></td>
+        <td>
+          <div id="6" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="7" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
+        <td>
+          <div id="8" class="game-cell">
+            <div class="empty"></div>
+          </div>
+        </td>
       </tr>
     </table>
+    <div class="options">
+      <select id="humanPlayer">
+        <option value="player1" selected>Play as Player 1</option> 
+        <option value="player2">Play as Player 2</option>
+        <option value="both">Play as Both</option>
+      </select> 
+      <button class="restart">Restart</button>
+    </div>
   </body>
 </html>

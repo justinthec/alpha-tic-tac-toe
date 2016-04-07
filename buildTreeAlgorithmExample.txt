@@ -1,0 +1,72 @@
+{board: [0,0], playerToMove: 1}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2, moves: {0: null}}
+{board: [2,1], playerToMove: 1}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2, moves: {0: null}}
+{board: [2,1], playerToMove: 1, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2, moves: {0: null}}
+POP from inputTreeStack {board: [2,1], playerToMove: 1, value: 0}
+PUSH onto finishedTreeStack {board: [2,1], playerToMove: 1, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2, moves: {0: null}}
+POP from finishedTreeStack {board: [2,1], playerToMove: 1, value: 0} and add to moves.
+Also propogate the value from the children to the parent.
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+{board: [0,1], playerToMove: 2, moves: {0: {board: [2,1], playerToMove: 1, value: 0}}, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2}
+POP from inputTreeStack {board: [0,1], playerToMove: 2, moves: {0: {board: [2,1], playerToMove: 1, value: 0}}, value: 0}
+PUSH onto finishedTreeStack {board: [0,1], playerToMove: 2, moves: {0: {board: [2,1], playerToMove: 1, value: 0}}, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2, moves: {1: null}}
+{board: [1,2], playerToMove: 1}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2, moves: {1: null}}
+{board: [1,2], playerToMove: 1, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2, moves: {1: null}}
+POP from inputTreeStack {board: [1,2], playerToMove: 1, value: 0}
+PUSH onto finishedTreeStack {board: [1,2], playerToMove: 1, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2, moves: {1: null}}
+POP from finishedTreeStack {board: [1,2], playerToMove: 1, value: 0} and add to moves.
+Also propogate the value from the children to the parent.
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+{board: [1,0], playerToMove: 2, moves: {1: {board: [1,2], playerToMove: 1, value: 0}}, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+POP from inputTreeStack {board: [1,0], playerToMove: 2, moves: {1: {board: [1,2], playerToMove: 1, value: 0}}, value: 0}
+PUSH onto finishedTreeStack {board: [1,0], playerToMove: 2, moves: {1: {board: [1,2], playerToMove: 1, value: 0}}, value: 0}
+
+{board: [0,0], playerToMove: 1, moves: {0: null, 1: null}}
+POP from finishedTreeStack {board: [1,0], playerToMove: 2, moves: {1: {board: [1,2], playerToMove: 1, value: 0}}, value: 0} and add to moves.
+POP from finishedTreeStack {board: [0,1], playerToMove: 2, moves: {0: {board: [2,1], playerToMove: 1, value: 0}}, value: 0} and add to moves.
+Also propogate the value from the children to the parent.
+
+{board: [0,0], playerToMove: 1, moves: {0: {board: [1,0], playerToMove: 2, moves: {1: {board: [1,2], playerToMove: 1, value: 0}}, value: 0}, 1: {board: [0,1], playerToMove: 2, moves: {0: {board: [2,1], playerToMove: 1, value: 0}}, value: 0}}, value: 0}
+
+return;
+
+Therefore the game evaluates to a draw.
