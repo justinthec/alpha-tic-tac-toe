@@ -3,7 +3,7 @@ var AIPlayer = -1;
 var pieceClasses = {
   "1": "cross",
   "2": "circle"
-}
+};
 var solvedGameTree;
 var currentGameTree;
 var gameOver = false;
@@ -13,20 +13,20 @@ var startBoard = [0,0,0,
 
 // Board Helper Functions
 function fullBoard(board) {
-  if (Math.min(...board) != 0) {
+  if (Math.min(...board) !== 0) {
     return true;
   }
   return false;
 }
 
 function wonBoardForPlayer(board, player) {
-  for (var i = 0; i < 3; i++) { // Horizontal
-    var j = i * 3;
+  for (let i = 0; i < 3; i++) { // Horizontal
+    let j = i * 3;
     if (board[j] == player && board[j+1] == player && board[j+2] == player) {
       return true;
     }
   }
-  for (var i = 0; i < 3; i++) { // Vertical
+  for (let i = 0; i < 3; i++) { // Vertical
     if (board[i] == player && board[i+3] == player && board[i+6] == player) {
       return true;
     }
@@ -79,7 +79,7 @@ function buildTree(initialTree) {
         if (move.winner == currentTree.playerToMove) {
           currentTree.winner = move.winner;
           currentTree.bestMove = moveIndex;
-        } else if (move.winner == 0 && currentTree.winner != currentTree.playerToMove) {
+        } else if (move.winner === 0 && currentTree.winner != currentTree.playerToMove) {
           currentTree.winner = move.winner;
           currentTree.bestMove = moveIndex;
         }
@@ -93,7 +93,7 @@ function buildTree(initialTree) {
       // Generate moves and add to the input stack
       currentTree.moves = {};
       for(var i = 0; i < currentTree.board.length; i++) {
-        if (currentTree.board[i] == 0) {
+        if (currentTree.board[i] === 0) {
           currentTree.moves[i] = null; // To indicate that we expect a move tree to be filled in here.
 
           var newBoard = currentTree.board.slice(0); // Value copy not reference copy
@@ -109,7 +109,7 @@ function buildTree(initialTree) {
 // Gameplay Helpers
 function processMove(squareId) {
   var currentBoard = currentGameTree.board;
-  if (currentBoard[squareId] == 0 && !gameOver) { // Human player
+  if (currentBoard[squareId] === 0 && !gameOver) { // Human player
     placePiece(squareId);
     traverseMove(squareId);
     changeTurn();
@@ -122,7 +122,7 @@ function makeAIMove() {
   }
   var currentBoard = currentGameTree.board;
   var decidedMove = currentGameTree.bestMove;
-  if (decidedMove != -1 && currentBoard[decidedMove] == 0) {
+  if (decidedMove != -1 && currentBoard[decidedMove] === 0) {
     placePiece(decidedMove); 
     traverseMove(decidedMove);
     changeTurn();
@@ -207,9 +207,9 @@ function init() {
   cells.forEach(function(cell) {
     cell.onclick = function() {
       processMove(cell.id);
-    }
+    };
   });
-  document.querySelector(".restart").onclick = restartGame
+  document.querySelector(".restart").onclick = restartGame;
 }
 window.onload = init; // Call main when DOM ready
 
@@ -217,4 +217,4 @@ window.onresize = function() {
   // var gameGrid = document.querySelector(".game-grid");
   // gameGrid.width = window.innerWidth;
   // gameGrid.height = window.innerWidth;
-}
+};
